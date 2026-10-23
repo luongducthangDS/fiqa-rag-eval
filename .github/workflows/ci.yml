@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Lint (ruff)
+        run: pipx run --spec ruff==0.17.2 ruff check .
 
       - name: Setup Python 3.11
         uses: actions/setup-python@v5
@@ -18,7 +20,7 @@ jobs:
           cache: "pip"
 
       - name: Install test dependencies
-        run: pip install pytest numpy
+        run: pip install pytest==9.1.1 numpy==2.4.6
 
       - name: Run IR Metrics & Fusion Correctness Tests
         run: pytest -q --junitxml=reports/junit.xml
