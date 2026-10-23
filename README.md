@@ -78,3 +78,7 @@ python scripts/plot.py
 2. When would you still keep a reranker that adds 0.009 NDCG?
 3. Why is Recall@100 the number the generator team cares about?
 4. What would you change to get the 75 ms dense latency under 20 ms?
+
+## Data and license
+
+Code: MIT ([LICENSE](LICENSE)). Data: FiQA-2018 via the [BEIR](https://github.com/beir-cellar/beir) copies on Hugging Face (`BeIR/fiqa`, `BeIR/fiqa-qrels`), downloaded at run time; see the dataset cards for their terms.

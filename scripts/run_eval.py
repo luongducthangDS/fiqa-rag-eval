@@ -11,8 +11,8 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from rag.data import load  # noqa: E402
-from rag.metrics import mrr_at_k, ndcg_at_k, recall_at_k, rrf  # noqa: E402
+from rag.data import load
+from rag.metrics import mrr_at_k, ndcg_at_k, recall_at_k, rrf
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / ".cache"
