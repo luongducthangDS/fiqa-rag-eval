@@ -1,0 +1,69 @@
+{
+  "corpus_docs": 57638,
+  "test_queries": 648,
+  "dense_model": "BAAI/bge-small-en-v1.5",
+  "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "rerank_depth": 50,
+  "dense_index_build_s": 6627.5,
+  "dense_index_mb": 88.5,
+  "bm25_build_s": 23.6,
+  "systems": {
+    "bm25": {
+      "ndcg@10": 0.2514,
+      "recall@100": 0.5593,
+      "mrr@10": 0.3075,
+      "latency_ms_p50": 1.3,
+      "latency_ms_p95": 5.1
+    },
+    "dense_bge_small": {
+      "ndcg@10": 0.4035,
+      "recall@100": 0.6963,
+      "mrr@10": 0.4879,
+      "latency_ms_p50": 74.6,
+      "latency_ms_p95": 86.8
+    },
+    "hybrid_rrf": {
+      "ndcg@10": 0.3621,
+      "recall@100": 0.6927,
+      "mrr@10": 0.4324,
+      "latency_ms_p50": 76.1,
+      "latency_ms_p95": 89.0
+    },
+    "hybrid_rrf+rerank": {
+      "ndcg@10": 0.371,
+      "recall@100": 0.6927,
+      "mrr@10": 0.4413,
+      "latency_ms_p50": 5261.5,
+      "latency_ms_p95": 7003.1
+    }
+  },
+  "paired_ndcg@10": {
+    "dense_vs_bm25": {
+      "delta": 0.1521,
+      "ci95": [
+        0.129,
+        0.1755
+      ],
+      "queries_better": 317,
+      "queries_worse": 85
+    },
+    "hybrid_vs_dense": {
+      "delta": -0.0414,
+      "ci95": [
+        -0.0588,
+        -0.0247
+      ],
+      "queries_better": 154,
+      "queries_worse": 209
+    },
+    "rerank_vs_hybrid": {
+      "delta": 0.009,
+      "ci95": [
+        -0.006,
+        0.0243
+      ],
+      "queries_better": 180,
+      "queries_worse": 166
+    }
+  }
+}
